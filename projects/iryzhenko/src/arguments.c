@@ -65,6 +65,9 @@ void arguments_set_flags(app_t *app, int argc, char **argv) {
                 }
                 
                 default: {
+                    mx_printerr("uls: illegal option -- ");
+                    write(STDERR_FILENO, &argv[i][j], 1);
+                    mx_printerr("\n");
                     error_get_usage();
                     break;
                 }
